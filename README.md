@@ -77,7 +77,7 @@ using the same provider with different configuration for different resources.
 
 ```
 
-🌟 <h3 style='color:yellowgreen'>Provider dependencies</h3>
+🌟 <h3 style='color:red'>Provider dependencies</h3>
 
 🌟 Provider dependencies are created in several different ways.
 
@@ -91,3 +91,46 @@ using the same provider with different configuration for different resources.
  ami="abc123"
  andinstance_type ="t2.micro"
  [https://www.terraform.io/language/syntax/style](https://www.terraform.io/language/syntax/style)
+
+<h3 style='color:yellowgreen'>why this option?</h3>
+terraform {
+    required_version = ">=0.12"
+    }
+
+You can use required_version to ensure that a user deploying infrastructure is using Terraform 0.12 or greater , due to the vast number of changes that were introduced. as a result, many previously written configurations had to be converted or rewritten.
+
+<h3 style='color:yellowgreen'>Terraform plugins</h3>
+when you run terraform init it goes and download plugins . where is the location of the plugins in your system?
+
+By default, terraform init downloads plugins into a subdirectory of the working directory `.terraform/plugins`, so that each working directory is self-contained
+
+<h3 style='color:yellowgreen'>environment variable</h3>
+Environment variables can be used to set variables. the environment variables must be in the format TF_VAR_name and this will be checked last for a value for example:
+
+```
+export TF_VAR_region=us-west-1
+export TF_VAR_ami=ami-12312312
+export TF_VAR_alist='[1,2,3]'
+export TF_VAR_amap='{foo="bar",baz="qux"}'
+```
+
+<h3 style='color:yellowgreen'>Hashicorp style</h3>
+
+when writing Terraform code Hashicorp recommends that you use `2` spaces between each nesting level
+
+<h3 style='color:yellowgreen'>Terraform provider</h3>
+when you used a below code example
+
+```
+    terraform {
+
+        required_providers{
+
+        aws = "~>1.2.0"
+        {
+    }
+```
+
+it means , it will match any non-beta version of provider between >= 1.2.0 and <1.3.0 for example 1.2.X
+
+[https://www.terraform.io/configuration/modules#gt-1-2-0-1](https://www.terraform.io/configuration/modules#gt-1-2-0-1)

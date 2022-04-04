@@ -165,3 +165,42 @@ During a Terraform apply, any resources that are successfully provisioned are ma
 <img src="img/constraint.png">]
 
 terraform would use the existing module already downloaded.
+
+<h3 style='color:yellowgreen'>Local in Terraform</h3>
+A local Value assings a name to an expression, so you can use it multiple times within a module without repeating it.
+
+```
+locals {
+  service_name = "forum"
+  owner        = "Community Team"
+}
+
+locals {
+  # Ids for multiple sets of EC2 instances, merged together
+  instance_ids = concat(aws_instance.blue.*.id, aws_instance.green.*.id)
+}
+
+locals {
+  # Common tags to be assigned to all resources
+  common_tags = {
+    Service = local.service_name
+    Owner   = local.owner
+  }
+}
+
+
+
+resource "aws_instance" "example" {
+  # ...
+
+  tags = local.common_tags
+}
+
+```
+
+<h3 style='color:yellowgreen'>remove resource from state manually </h3>
+
+if you remove a resource from state manually with the `terraform state rm vsphere_virtual_machine.app1` and run terraform apply. the Terraform was no longer aware of the virtual machine and it refreshed the state file and discovered that the configuration file declared a virtual machine but it was not in state, there fore Terraform needed to create a virtual machin so the provisioned infrastructure matched the desired configuration. which is the Terraform configuration file.
+
+
+[watch this video ](https://www.youtube.com/watch?v=7gO42TuioHc)

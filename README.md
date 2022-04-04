@@ -142,24 +142,26 @@ if the state is configured for remote state, the backend selected will determine
 
 [https://www.terraform.io/language/state/locking](https://www.terraform.io/language/state/locking)
 
-
 <h3 style='color:yellowgreen'>Terraform sensitive information</h3>
-when ever you use these three methods, username/password will being written to the state file. 
+when ever you use these three methods, username/password will being written to the state file.
 
 - useing a declared variable
-- retrieving the credentials from a data source, such as HashiCorp Vault 
-- using a tfvars file 
+- retrieving the credentials from a data source, such as HashiCorp Vault
+- using a tfvars file
 
-🌟  Environment vaiables can end up in log files if TF_LOG is set to TRACE.
-
+🌟 Environment vaiables can end up in log files if TF_LOG is set to TRACE.
 
 <h3 style='color:yellowgreen'>Reconciling real-world drifts</h3>
 
 Prior to a plan or apply operation, Terraform does a refresh to update the state file with real-world status. You can also do a refresh any time with` terraform refresh`:
- what Terraform is doing here is reconciling the resources tracked by the state file with the real world. it does this by querying your infrastructure providers to find out what's actually running and the current configuration. and updating the state file with this new information.Terraform is designed to co-exist with other tools as well as manually provisioned resourcs and so it only refreshes resources under its management 
-
-
+what Terraform is doing here is reconciling the resources tracked by the state file with the real world. it does this by querying your infrastructure providers to find out what's actually running and the current configuration. and updating the state file with this new information.Terraform is designed to co-exist with other tools as well as manually provisioned resourcs and so it only refreshes resources under its management
 
 <h3 style='color:yellowgreen'>Easy-Peasy</h3>
 
 During a Terraform apply, any resources that are successfully provisioned are maintained as `deployed`. on the other hand resources that failed during the provisioning process such as provisioned will be `tainted` to be recreated during the next run. This
+
+🌟 🌟 🌟 <h3 style='color:yellowgreen'>what if I remove the version of module and run terraform init again </h3>
+
+<img src="img/constraint.png">]
+
+terraform would use the existing module already downloaded.

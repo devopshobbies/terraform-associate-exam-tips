@@ -134,3 +134,32 @@ when you used a below code example
 it means , it will match any non-beta version of provider between >= 1.2.0 and <1.3.0 for example 1.2.X
 
 [https://www.terraform.io/configuration/modules#gt-1-2-0-1](https://www.terraform.io/configuration/modules#gt-1-2-0-1)
+
+<h3 style='color:yellowgreen'>Terraform lock file</h3>
+what happen if multiple user attempt to run a terraform apply simultaneously when using a remote backend ?
+
+if the state is configured for remote state, the backend selected will determine what happends. if the backedn support locking, the file will be locked for the first user , and the users's configuration will be applied . the second users;'s terraform applyu will return an error that the state is locked. if the remote backend does not support locking, the state file could become corrupted, since multiple users are trying to make changes at the same time
+
+[https://www.terraform.io/language/state/locking](https://www.terraform.io/language/state/locking)
+
+
+<h3 style='color:yellowgreen'>Terraform sensitive information</h3>
+when ever you use these three methods, username/password will being written to the state file. 
+
+- useing a declared variable
+- retrieving the credentials from a data source, such as HashiCorp Vault 
+- using a tfvars file 
+
+🌟  Environment vaiables can end up in log files if TF_LOG is set to TRACE.
+
+
+<h3 style='color:yellowgreen'>Reconciling real-world drifts</h3>
+
+Prior to a plan or apply operation, Terraform does a refresh to update the state file with real-world status. You can also do a refresh any time with` terraform refresh`:
+ what Terraform is doing here is reconciling the resources tracked by the state file with the real world. it does this by querying your infrastructure providers to find out what's actually running and the current configuration. and updating the state file with this new information.Terraform is designed to co-exist with other tools as well as manually provisioned resourcs and so it only refreshes resources under its management 
+
+
+
+<h3 style='color:yellowgreen'>Easy-Peasy</h3>
+
+During a Terraform apply, any resources that are successfully provisioned are maintained as `deployed`. on the other hand resources that failed during the provisioning process such as provisioned will be `tainted` to be recreated during the next run. This

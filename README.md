@@ -1,4 +1,4 @@
-# Packer-tutorial
+# Terraform Associate Tips
 
 <p align="center" style="text-align:center;">
   <a href="https://www.hashicorp.com/certification/terraform-associate">
@@ -7,7 +7,7 @@
 </p>
 
 
-<h1 style='color:yellowgreen'>summary Tips from exams</h1>
+<!-- <h1 style='color:yellowgreen'>summary Tips from exams</h1> -->
 
 
 <h3 style="color:yellowgreen">

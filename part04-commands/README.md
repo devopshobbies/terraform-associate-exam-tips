@@ -116,5 +116,3 @@ If you're moving an item to a different state file, a backup will be created for
  Hence, in the exam, you can be asked about terraform init command behavior in Terraform 0.13, then you should also mark -&gt; Downloads and installs community as well as HashiCorp distributed provider's plugin so that it can later be executed during terraform plan and apply.
  New -&gt; Click here to know Automatic Installation of Third-Party Providers with Terraform 0.13 
  
-        
-                </div>

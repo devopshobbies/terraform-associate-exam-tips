@@ -1,38 +1,37 @@
-<h1 style='color:yellowgreen'>terraform validate  </h1>
+<h1 style='color:yellowgreen'>how make sensitive information being not written to the state file </h1>
+ The only method list above that will not result in the username/password being written to the state file is environment variables. All of the other options will result in the provider's credentials in the state file.
+ 
+Terraform runs will receive the full text of sensitive variables, and might print the value in logs and state files if the configuration pipes the value through to an output or a resource parameter. Additionally, Sentinel mocks downloaded from runs will contain the sensitive values of Terraform (but not environment) variables. Take care when writing your configurations to avoid unnecessary credential disclosure. Whenever possible, use environment variables since these cannot end up in state files or in Sentinel mocks. (Environment variables can end up in log files if TF_LOG is set to TRACE.)
 
-Validation requires an initialized working directory with any referenced plugins and modules installed. If the directory is NOT initialized, it will result in an error.
+<a href="https://www.terraform.io/docs/cloud/workspaces/variables.html#sensitive-values" target="_blank">https://www.terraform.io/docs/cloud/workspaces/variables.html#sensitive-values</a>
 
-terraform validate
-
-Error: Could not load plugin
-Plugin reinitialization required. Please run "terraform init".
-Plugins are external binaries that Terraform uses to access and manipulate resources. The configuration provided requires plugins which can't be located,
-don't satisfy the version constraints, or are otherwise incompatible.
-Terraform automatically discovers provider requirements from your configuration, including providers used in child modules. To see the requirements and constraints, run "terraform providers".
-Failed to instantiate provider "registry.terraform.io/hashicorp/aws" to obtain
-schema: unknown provider "registry.terraform.io/hashicorp/aws"
-
-<h1 style='color:yellowgreen'>terraform init -upgrade  </h1>
-
-The -upgrade will `upgrade all previously-selected plugins to the newest version that complies with the configuration's version constraints`. This will cause Terraform to ignore any selections recorded in the dependency lock file, and to take the newest available version matching the configured version constraints.
-
-<h1 style='color:yellowgreen'>save the terraform plan</h1>
-The optional -out argument can be used to save the generated plan to a file for later execution with terraform apply, which can be useful when running Terraform in automation.
-
-<h1 style='color:yellowgreen'>terraform parallelism</h1>
-
-Terraform can limit the number of concurrent operations as Terraform walks the graph using the `-parallelism=n ` argument. The default value for this setting is` 10`. `This setting might be helpful if you're running into API rate limits.`
+<a href="https://learn.hashicorp.com/tutorials/terraform/sensitive-variables" target="_blank">https://learn.hashicorp.com/tutorials/terraform/sensitive-variables</a>
 
 
-<h1 style='color:yellowgreen'>new provider</h1>
-when ever you add a new provider you have to initialize terraform one more time to download the plugin.
+<h1 style='color:yellowgreen'>commands to detect configuration drift</h1>
+If the state has drifted from the last time Terraform ran, refresh allows that drift to be detected.
 
 
-<h1 style='color:yellowgreen'>what does tilda (~) mean in plan file</h1>
-The prefix -/+ means that Terraform will destroy and recreate the resource, rather than updating it in-place. Some attributes and resources can be updated in-place and are shown with the ~ prefix.
 
-<h1 style='color:yellowgreen'>what terraform init do</h1>
-The terraform init command is used to initialize a working directory containing Terraform configuration files. This is the first command that should be run after writing a new Terraform configuration or cloning an existing one from version control. It is safe to run this command multiple times.  it will 
-* initializes the backend configuration
-* download the declared providers which are supported by hashicorp
-* initializes downloaded and/or installed providers
+<h1 style='color:yellowgreen'>Terraform OSS store the local state </h1>
+For the local state, Terraform stores the workspace states in a directory called terraform.tfstate.d
+
+<h1 style='color:yellowgreen'>Terraform backend list </h1>
+- local
+- remote
+- artifactory
+- azurerm
+- consul
+- cos
+- etcd
+- etcdv3
+- gcs
+- http
+- Kubernetes
+- manta 
+- OSS
+- pg 
+- s3
+- swift
+<h1 style='color:yellowgreen'>Terraform unlock state </h1>
+terraform force-unlock removes the lock on the state for the current configuration. Be very careful forcing an unlock, as it could cause data corruption and problems with your state file.

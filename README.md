@@ -9,7 +9,6 @@
 
 please check the folders for more information
 
-[part01-MISC](./part01-MISC/README.md)
 
 
 

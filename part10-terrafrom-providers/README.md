@@ -43,3 +43,56 @@ terraform {
  Each argument in the required_providers block enables one provider. The key determines the provider's local name (its unique identifier within this module), and the value is an object with the following elements:
  * source - the global source address for the provider you intend to use, such as hashicorp/aws.
  * version - a version constraint specifying which subset of available provider versions the module is compatible with.
+
+
+<h3 style='color:yellowgreen'>Multiple Provider Configurations</h3>
+
+You can optionally define multiple configurations for the `same provider` , and select which one to use on a per-resource or per-module basis. The primary reason for this is `to support multiple regions` for a cloud platform; other examples include targeting multiple Docker hosts, multiple Consul hosts, etc.
+
+alias purpose in Terraform :
+using the same provider with different configuration for different resources.
+
+[https://www.terraform.io/language/providers/configuration](https://www.terraform.io/language/providers/configuration)
+
+```
+    # The default provider configuration; resources that begin with `aws_` will use
+    # it as the default, and it can be referenced as `aws`.
+    provider "aws" {
+    region = "us-east-1"
+    }
+
+    # Additional provider configuration for west coast region; resources can
+    # reference this as `aws.west`.
+    provider "aws" {
+    alias  = "west"
+    region = "us-west-2"
+    }
+
+```
+
+🌟 <h3 style='color:red'>Provider dependencies</h3>
+
+🌟 Provider dependencies are created in several different ways.
+
+- explicit use of a provider block in configuration. optionally including a version constraint
+- use of any resource belonging to particular provider in a resource or data block in the configuration
+- existence of any resource instance belonging to particular provider in the current state
+
+
+
+<h3 style='color:yellowgreen'>Terraform provider</h3>
+when you used a below code example
+
+```
+    terraform {
+
+        required_providers{
+
+        aws = "~>1.2.0"
+        {
+    }
+```
+
+it means , it will match any non-beta version of provider between >= 1.2.0 and <1.3.0 for example 1.2.X
+
+[https://www.terraform.io/configuration/modules#gt-1-2-0-1](https://www.terraform.io/configuration/modules#gt-1-2-0-1)

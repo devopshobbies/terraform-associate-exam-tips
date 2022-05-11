@@ -157,4 +157,34 @@ A primitive type is a simple type that isn't made from any other type. All primi
  ["a", 15, true]
  
         
-       
+<h3 style='color:yellowgreen'>Local in Terraform</h3>
+A local Value assings a name to an expression, so you can use it multiple times within a module without repeating it.
+
+```
+locals {
+  service_name = "forum"
+  owner        = "Community Team"
+}
+
+locals {
+  # Ids for multiple sets of EC2 instances, merged together
+  instance_ids = concat(aws_instance.blue.*.id, aws_instance.green.*.id)
+}
+
+locals {
+  # Common tags to be assigned to all resources
+  common_tags = {
+    Service = local.service_name
+    Owner   = local.owner
+  }
+}
+
+
+
+resource "aws_instance" "example" {
+  # ...
+
+  tags = local.common_tags
+}
+
+```

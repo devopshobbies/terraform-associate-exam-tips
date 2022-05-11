@@ -10,3 +10,43 @@
 ` Self-Service Clusters`
  At a certain organizational size, it becomes very challenging for a centralized operations team to manage a large and growing infrastructure. Instead, it becomes more attractive to make "self-serve" infrastructure, allowing product teams to manage their own infrastructure using tooling provided by the central operations team.
  Using Terraform, the knowledge of how to build and scale a service can be codified in a configuration. Terraform configurations can be shared within an organization enabling customer teams to use the configuration as a black box and use Terraform as a tool to manage their services.
+
+
+
+<h3 style='color:yellowgreen'>Hashicorp Style</h3>
+ HashiCorp style conventions suggest you that align the equals sign for consecutive arguments for easing readability for configurations
+ 
+ ami="abc123"
+ andinstance_type ="t2.micro"
+ [https://www.terraform.io/language/syntax/style](https://www.terraform.io/language/syntax/style)
+
+ <h3 style='color:yellowgreen'>Terraform style</h3>
+Lists are defined with [] and maps are defined with {}
+it means like this 
+
+```
+type = list(string)
+default = [] not {}
+```
+
+
+<h3 style='color:yellowgreen'>retrieval of data</h3>
+it is important to consider that Terraform reads from data sources during the plan phase and writes the result into the plan.For something like a Vault token wich has an explicit TTL the apply must be run before the data , or token, in this case, expires, otherwise, Terraform will fail during the apply phase.
+
+
+
+
+
+<h3 style='color:yellowgreen'>Terraform depends on </h3>
+Terraform analyzes any expressions within a resource block to find references to other objects and treats those references as implicit ordering requirements when creating, updating or destroying resources.
+
+
+<h3 style='color:yellowgreen'>environment variable</h3>
+Environment variables can be used to set variables. the environment variables must be in the format TF_VAR_name and this will be checked last for a value for example:
+
+```
+export TF_VAR_region=us-west-1
+export TF_VAR_ami=ami-12312312
+export TF_VAR_alist='[1,2,3]'
+export TF_VAR_amap='{foo="bar",baz="qux"}'
+```

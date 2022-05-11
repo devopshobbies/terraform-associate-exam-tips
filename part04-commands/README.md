@@ -116,3 +116,17 @@ If you're moving an item to a different state file, a backup will be created for
  Hence, in the exam, you can be asked about terraform init command behavior in Terraform 0.13, then you should also mark -&gt; Downloads and installs community as well as HashiCorp distributed provider's plugin so that it can later be executed during terraform plan and apply.
  New -&gt; Click here to know Automatic Installation of Third-Party Providers with Terraform 0.13 
  
+
+
+<h3 style="color:yellowgreen">
+- Usage: terraform console [options]
+</h3>
+This command provides an interactive command-line console for evaluating and experimenting with expressions. This is useful for testing interpolations before using them in configurations, and for interacting with any values currently saved in state.
+
+
+
+<h3 style='color:yellowgreen'>Terraform commands</h3>
+
+`Terraform taint `command manually marks a Terraform-managed resource as tainted, forcing it to be destroyed and recreated on the next apply.
+`Terraform workspace` select command is used to choose a different workspace to use further operations. 
+`Terraform login` command can be used to automatically obtain and save an api token for Terraform Cloud, Terraform Enterprise , or any other host that offers Terraform services.

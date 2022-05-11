@@ -170,3 +170,9 @@ the main.tf file is the calling module and the app-cluster is a child module.
  To call a module means to include the contents of that module into the configuration with specific values for its input variables. Modules are called from within other modules using module blocks. A module that includes a module block like this is the calling module of the child module.
 
 The label immediately after the module keyword is a local name, which the calling module can use to refer to this instance of the module.
+
+
+<h3 style='color:yellowgreen'>Terraform plugins</h3>
+when you run terraform init it goes and download plugins . where is the location of the plugins in your system?
+
+By default, terraform init downloads plugins into a subdirectory of the working directory `.terraform/plugins`, so that each working directory is self-contained

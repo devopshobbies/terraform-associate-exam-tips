@@ -55,3 +55,9 @@ if you run terraform apply , where does Terraform will write its sate data ?
 
 For local state , Terraform stores the workspace states in a directory called terraform.tfsate.d this direcotry should be treated similarly to local-only terraform.tfsate
 so it will be like `terraform.tfstate.d/{your workspace name}/ terraform.tfstate`
+
+
+<h3 style='color:yellowgreen'>Reconciling real-world drifts</h3>
+
+Prior to a plan or apply operation, Terraform does a refresh to update the state file with real-world status. You can also do a refresh any time with` terraform refresh`:
+what Terraform is doing here is reconciling the resources tracked by the state file with the real world. it does this by querying your infrastructure providers to find out what's actually running and the current configuration. and updating the state file with this new information.Terraform is designed to co-exist with other tools as well as manually provisioned resourcs and so it only refreshes resources under its management

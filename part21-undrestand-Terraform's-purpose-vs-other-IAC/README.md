@@ -1,1 +1,2 @@
-<h1 style='color:yellowgreen'>nothing </h1>
+<h1 style='color:yellowgreen'>Terraform benefits </h1>
+Terraform is a cloud-agnostic tool, and therefore isn't limited to a single cloud provider, such as AWS CloudFormation or Azure Resource Manager. Terraform supports all of the major cloud providers and allows IT organizations to focus on learning a single tool for deploying its infrastructure, regardless of what platform it's being deployed on

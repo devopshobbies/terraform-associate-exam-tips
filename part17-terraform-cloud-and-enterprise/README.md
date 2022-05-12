@@ -29,6 +29,33 @@ Each time a new provider is added to configuration -- either explicitly via a pr
 <h1 style='color:yellowgreen'>terraform specific settings and behaviors</h1>
  The special terraform configuration block type is used to configure some behaviors of Terraform itself, such as requiring a minimum Terraform version to apply your configuration.
 
+🌟🌟🌟 <h1 style='color:yellowgreen'>terraform enterprise installation without internet</h1>
+
+A Terraform Enterprise install that is provisioned on a network that does not have Internet access is generally known as an `air-gapped` install. These types of installs require you to pull updates, providers, etc. from external sources vs. being able to download them directly.
+
+🌟🌟🌟 <h1 style='color:yellowgreen'>terraform cloud supported VCS provider</h1>
+
+Terraform Cloud supports the following VCS providers as of January 2022:
+
+  - GitHub
+
+  - GitHub.com (OAuth)
+
+  - GitHub Enterprise
+
+  - GitLab.com
+
+  - GitLab EE and CE
+
+  - Bitbucket Cloud
+
+  - Bitbucket Server
+
+  - Azure DevOps Server
+
+  - Azure DevOps Services
+  
+
  <h1 style='color:yellowgreen'>terraform configuration block and specific version</h1>
  For production use, you should constrain the acceptable provider versions via configuration file to ensure that new versions with breaking changes will not be automatically installed by terraform init in the future. When terraform init is run without provider version constraints, it prints a suggested version constraint string for each provider
  

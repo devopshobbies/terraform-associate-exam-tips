@@ -90,3 +90,15 @@ Interactively: Terraform will interactively ask you for the required values unle
 File: A configuration file may be specified via the init command line. To specify a file, use the -backend-config=PATH option when running terraform init. If the file contains secrets it may be kept in a secure data store, such as Vault, in which case it must be downloaded to the local disk before running Terraform.
 
 Command-line key/value pairs: Key/value pairs can be specified via the init command line. Note that many shells retain command-line flags in a history file, so this isn't recommended for secrets. To specify a single key/value pair, use the -backend-config="KEY=VALUE" option when running terraform init.
+
+🌟🌟🌟  <h1 style='color:yellowgreen'>join function</h1>
+
+`join` produces a string by concatenating together all elements of a given list of strings with the given delimiter.
+`join(separator, list)`
+
+```
+> join(", ", ["foo", "bar", "baz"])
+foo, bar, baz
+> join(", ", ["foo"])
+foo
+```

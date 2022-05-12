@@ -14,3 +14,7 @@ to turning it of use TF_LOG=""
 <h3 style='color:yellowgreen'>Hashicorp style</h3>
 
 when writing Terraform code Hashicorp recommends that you use `2` spaces between each nesting level
+
+
+🌟🌟🌟 <h1 style='color:yellowgreen'>describes best how Terraform resource dependencies are handled</h1>
+Terraform analyzes any expressions within a resource block to find references to other objects and treats those references as implicit ordering requirements when creating, updating, or destroying resources.

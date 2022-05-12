@@ -130,3 +130,17 @@ This command provides an interactive command-line console for evaluating and exp
 `Terraform taint `command manually marks a Terraform-managed resource as tainted, forcing it to be destroyed and recreated on the next apply.
 `Terraform workspace` select command is used to choose a different workspace to use further operations. 
 `Terraform login` command can be used to automatically obtain and save an api token for Terraform Cloud, Terraform Enterprise , or any other host that offers Terraform services.
+
+<h3 style='color:yellowgreen'>Terraform replace</h3>
+
+The` terraform apply -replace `command manually marks a Terraform-managed resource for replacement, forcing it to be destroyed and recreated on the apply execution.
+
+You could also use terraform destroy -target <virtual machine> and destroy only the virtual machine and then run a terraform apply again.
+
+IMPORTANT - PLEASE READ
+
+This command replaces terraform taint, which was the command that would be used up until 0.15.x. You may still see terraform taint on the actual exam until it is updated.
+
+🌟🌟🌟 <h1 style='color:yellowgreen'>Terraform state backup  </h1>
+
+By default, terraform init downloads plugins into a subdirectory of the working directory, `.terraform/providers `so that each working directory is self-contained.

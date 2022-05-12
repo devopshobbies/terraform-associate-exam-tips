@@ -35,3 +35,16 @@ For the local state, Terraform stores the workspace states in a directory called
 - swift
 <h1 style='color:yellowgreen'>Terraform unlock state </h1>
 terraform force-unlock removes the lock on the state for the current configuration. Be very careful forcing an unlock, as it could cause data corruption and problems with your state file.
+
+
+
+🌟🌟🌟 <h1 style='color:yellowgreen'>What are the core Terraform workflow steps to use infrastructure as code?</h1>
+The core Terraform workflow has three steps:
+
+  - Write - Author infrastructure as code.
+
+  - Plan - Preview changes before applying.
+
+  - Apply - Provision reproducible infrastructure.
+
+This guide walks through how each of these three steps plays out in the context of working as an individual practitioner, how they evolve when a team is collaborating on infrastructure, and how Terraform Cloud enables this workflow to run smoothly for entire organizations.

@@ -16,3 +16,12 @@
 This command locates the AWS instance with ID i-c4gd1563l. Then it attaches the existing settings of the instance, as described by the EC2 API, to the name aws_instance.quiz_experts_vm of a module. In this example, the module path implies that the root module is used. Finally, the mapping is saved in the Terraform state.
 
 ` The import command can import resources into modules as well as directly into the root of your state.`
+
+
+🌟🌟🌟 <h1 style='color:yellowgreen'>where should you store the credentials rather than storing them in plaintext </h1>
+
+- environment variables 
+- credentials file
+
+Explanation
+Some backends allow providing access credentials directly as part of the configuration for use in unusual situations, for pragmatic reasons. However, in normal use, HashiCorp does not recommend including access credentials as part of the backend configuration. Instead, leave those arguments completely unset and provide credentials via the credentials files or environment variables that are conventional for the target system, as described in the documentation for each backend.

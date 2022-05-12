@@ -50,3 +50,20 @@ export TF_VAR_ami=ami-12312312
 export TF_VAR_alist='[1,2,3]'
 export TF_VAR_amap='{foo="bar",baz="qux"}'
 ```
+
+
+🌟🌟🌟 <h1 style='color:yellowgreen'>terraform graph </h1>
+The terraform graph command is used to generate a visual representation of either a configuration or execution plan. The output is in the DOT format, which can be used by GraphViz to generate charts.
+`terraform graph | dot -Tsvg > graph.svg`
+
+🌟🌟🌟 <h1 style='color:yellowgreen'>What Terraform command can be used to evaluate and experiment with expressions in your configuration</h1>
+
+The` terraform console `command provides an interactive command-line console for `evaluating` and `experimenting with expressions`. This is useful for testing interpolations before using them in configurations, and for interacting with any values currently saved in state.
+
+Example from the Terraform documentation:
+
+`echo 'split(",", "foo,bar,baz")' | terraform console`
+
+🌟🌟🌟 <h1 style='color:yellowgreen'>Which of the following are true regarding Terraform variables?</h1>
+- When it comes to working with variables, the value that is used in the Terraform configuration will be stored in the state file, regardless of whether the sensitive argument was set to true. However, the value will not be shown in the CLI output if the value was to be exported by an output block.
+- the default value will be found in the state file if no other value was set for the variable

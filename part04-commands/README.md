@@ -144,3 +144,10 @@ This command replaces terraform taint, which was the command that would be used 
 🌟🌟🌟 <h1 style='color:yellowgreen'>Terraform state backup  </h1>
 
 By default, terraform init downloads plugins into a subdirectory of the working directory, `.terraform/providers `so that each working directory is self-contained.
+🌟🌟🌟 <h1 style='color:yellowgreen'>to delete all resources</h1> 
+‍
+- terraform destroy 
+- terraform apply -destroy
+
+🌟🌟🌟 <h1 style='color:yellowgreen'>terraform fmt -recursive</h1> 
+By default, fmt scans the current directory for configuration files and formats them according to the HCP canonical style and format. However, if you need it to also scan and format files in sub-directories, you can use the -recursive flag to instruct terraform fmt to also process files in subdirectories.

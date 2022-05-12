@@ -26,3 +26,8 @@ terraform {
 ``` 
 Remember to run terraform init again after making any change in the remote backend configuration. This command can not only download provider code, but also configure your Terraform backend. Moreover, the init command is idempotent, so it’s safe to run it over and over again.
 
+
+ 🌟🌟🌟 <h1 style='color:yellowgreen'>state migration </h1>
+ Whenever a configuration's backend changes, you must run `terraform init` again to validate and configure the backend before you can perform any plans, applies, or state operations. Re-running init with an already-initialized backend will update the working directory to use the new backend settings. `Either -reconfigure or -migrate-state must be supplied to update the backend configuration.`
+
+When changing backends, Terraform will give you the option to migrate your state to the new backend. This lets you adopt backends without losing any existing state.

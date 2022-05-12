@@ -18,3 +18,7 @@ Since code is checked into version control systems such as GitHub, GitLab, BitBu
  Scalability: With infrastructure as code you can write it once and then reuse it many times. This means that one well-written template can be used as the basis for multiple services, in multiple regions around the world, making it much easier to horizontally scale.
  Security: Once again infrastructure as code gives you a unified template for how to deploy your architecture. If you create one well-secured architecture you can reuse it multiple times, and know that each deployed version is following the same settings.
  Transactional: Terraform not only creates resources on your cloud account but also waits for them to stabilize while they start. It verifies that provisioning was successful, and if there is a failure it throws an error and try to recreate resource again during next apply.
+
+🌟🌟🌟 <h1 style='color:yellowgreen'>best describes the primary use of Infrastructure as Code (IaC)</h1>
+The primary use case for IaC is to deploy and configure resources in almost any environment in a single, unified way that also abstracts the user from the APIs.
+the ability to programmatically deploy and configure resources

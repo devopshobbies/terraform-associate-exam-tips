@@ -104,3 +104,17 @@ the resources defined in the module are encapsulated so the calling module canno
      source = "git::ssh://username@example.com/storage.git"
  }
  ```
+ 🌟🌟🌟 <h1 style='color:yellowgreen'>variables inside modules </h1>
+ When using modules, it's common practice to declare variables outside of the module and pass the value(s) to the child module when it is called by the parent/root module. However, it's perfectly acceptable to declare a variable inside of a module if you needed. Any variables declared inside of a module are only directly referencable within that module. You can't directly reference that variable outside of the module. You can, however, create an output in the module to export any values that might be needed outside of the module.
+
+
+ 🌟🌟🌟 <h1 style='color:yellowgreen'>where does terraform cache the modules </h1>
+ The .terraform directory contains the modules and plugins used to provision your infrastructure. These files are specific to a specific instance of Terraform when provisioning infrastructure, not the configuration of the infrastructure defined in .tf files.
+  
+  - in the .terraform/modules subdirectory in the current working directory
+
+ 🌟🌟🌟 <h1 style='color:yellowgreen'>reference output of a Module </h1>
+Using interpolation, you can reference the output of an exported value by using the following syntax: module.`<module name>.<output name>`
+
+Don't forget that before you can reference data/values from a module, the module has to have an output declared that references the desired value(s).
+  

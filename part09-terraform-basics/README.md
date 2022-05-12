@@ -67,3 +67,12 @@ Example from the Terraform documentation:
 🌟🌟🌟 <h1 style='color:yellowgreen'>Which of the following are true regarding Terraform variables?</h1>
 - When it comes to working with variables, the value that is used in the Terraform configuration will be stored in the state file, regardless of whether the sensitive argument was set to true. However, the value will not be shown in the CLI output if the value was to be exported by an output block.
 - the default value will be found in the state file if no other value was set for the variable
+
+🌟🌟🌟 <h1 style='color:yellowgreen'>terraform console</h1>
+The terraform console command will read the Terraform configuration in the current working directory and the Terraform state file from the configured backend so that interpolations can be tested against both the values in the configuration and the state file.
+
+When you execute a terraform console command, you'll get this output:
+```
+$terraform console
+Acquiring state lock. this my take a few moments...
+```

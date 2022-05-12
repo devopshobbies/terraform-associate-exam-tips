@@ -22,3 +22,6 @@
     Recommendations
     If you manage any sensitive data with Terraform (like database passwords, user passwords, or private keys), treat the state itself as sensitive data.
     Storing the state remotely can provide better security.
+
+   🌟🌟🌟  <h1 style='color:yellowgreen'>workspaces in Enterprise/Cloud</h1>
+   Workspaces in OSS are often used within the same working directory while workspaces in Enterprise/Cloud are often (but not required) `mapped to unique repos`.

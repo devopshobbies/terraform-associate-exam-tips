@@ -31,3 +31,6 @@ Remember to run terraform init again after making any change in the remote backe
  Whenever a configuration's backend changes, you must run `terraform init` again to validate and configure the backend before you can perform any plans, applies, or state operations. Re-running init with an already-initialized backend will update the working directory to use the new backend settings. `Either -reconfigure or -migrate-state must be supplied to update the backend configuration.`
 
 When changing backends, Terraform will give you the option to migrate your state to the new backend. This lets you adopt backends without losing any existing state.
+
+ 🌟🌟🌟 <h1 style='color:yellowgreen'>most secure place to store credentials when using a remote backend  </h1>
+ Anytime you can configure these credentials outside of Terraform is your best choice. Environment variables would be the second most-secure choice here. The primary focus is to ensure your credentials are not stored in plaintext and committed to a code repository. NOTE: You could use an encrypted file to store credentials and that encrypted file could be accessed by Terraform to read the creds.
